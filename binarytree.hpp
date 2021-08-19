@@ -63,13 +63,21 @@ class bintree{
             return NULL;
         }
 
+        void insertI(T info){
+            hijoI = new bintree<T>(info);cout<<"y"<<endl;
+        }
+
+        void insertD(T info){
+            hijoD = new bintree<T>(info);cout<<"y"<<endl;
+        }
+
         void insert(T info, T dad){
             bintree<T>* father;
             father = getNode(dad);
             if(info < dad)
-                father->hijoI = new bintree<T>(info);
+                father->insertI(info);
             if(info > dad)
-                father->hijoD = new bintree<T>(info);
+                father->insertI(info);
         }
 
         void insert(T info, T dad, bool dir){
@@ -77,9 +85,9 @@ class bintree{
             bintree<T>* father;cout<<"i"<<endl;
             father = get_node(dad);cout<<"f"<<endl;
             if(dir){cout<<"c"<<endl;
-                father->hijoD = new bintree<T>(info);  
+                father->insertD(info);  
             }else{cout<<"d"<<endl;
-                father->hijoI = new bintree<T>(info);}cout<<"z"<<endl;
+                father->insertI(info);}cout<<"z"<<endl;
         }
 
         void printPreorder(){
